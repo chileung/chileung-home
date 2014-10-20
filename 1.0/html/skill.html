@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript" src="../js/sizzle.min.js"></script>
+	<script type="text/javascript" src="../js/lib.js"></script>
+	<script type="text/javascript" src="../js/skill.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../css/skill.css">
+</head>
+<body>
+	<div id="screens">
+		<section id="skill">
+			<div id="skill_bg"></div>
+			<div class="container">
+				<div id="little_kwan">
+					<div id="left_eye">
+						<div class="eyeball"></div>
+					</div>
+					<div id="right_eye">
+						<div class="eyeball"></div>
+					</div>
+				</div>
+				<div class="clouds">
+					<div class="cloud js large">
+						<div class="gift"></div>
+						<div class="cloud_bg"></div>
+						<div class="skill_name">Javascript</div>
+					</div>
+					<div class="cloud css large">
+						<div class="gift"></div>
+						<div class="cloud_bg"></div>
+						<div class="skill_name">CSS</div>
+					</div>
+					<div class="cloud html large">
+						<div class="gift"></div>
+						<div class="cloud_bg"></div>
+						<div class="skill_name">HTML</div>
+					</div>
+					<div class="cloud jq middle">
+						<div class="gift"></div>
+						<div class="cloud_bg"></div>
+						<div class="skill_name">JQuery</div>
+					</div>
+					<div class="cloud ajax middle">
+						<div class="gift"></div>
+						<div class="cloud_bg"></div>
+						<div class="skill_name">Ajax</div>
+					</div>
+					<div class="cloud cs small">
+						<div class="gift"></div>
+						<div class="cloud_bg"></div>
+						<div class="skill_name">C#</div>
+					</div>
+					<div class="cloud aspnet small">
+						<div class="gift"></div>
+						<div class="cloud_bg"></div>
+						<div class="skill_name">ASP.NET</div>
+					</div>
+					<div class="cloud mssql middle">
+						<div class="gift"></div>
+						<div class="cloud_bg"></div>
+						<div class="skill_name">MS SQL Server</div>
+					</div>
+					<div class="cloud php middle">
+						<div class="gift"></div>
+						<div class="cloud_bg"></div>
+						<div class="skill_name">PHP</div>
+					</div>
+					<div class="cloud mysql small">
+						<div class="gift"></div>
+						<div class="cloud_bg"></div>
+						<div class="skill_name">MySQL</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<script type="text/javascript">
+		var leftEye, rightEye,
+			eyeball = Sizzle('#left_eye .eyeball')[0],
+			rect = eyeball.getBoundingClientRect();
+
+		leftEye = new Eye({
+			x: rect.left,
+			y: rect.top,
+			r: 5,
+			eyeball: eyeball
+		});
+
+		eyeball = Sizzle('#right_eye .eyeball')[0];
+		rect = eyeball.getBoundingClientRect();
+
+		rightEye = new Eye({
+			x: rect.left,
+			y: rect.top,
+			r: 4,
+			eyeball: eyeball
+		});
+
+		window.onmousemove = function(event) {
+			event = event || window.event;
+			leftEye.focus({
+				x: event.pageX,
+				y: event.pageY
+			});
+			rightEye.focus({
+				x: event.pageX,
+				y: event.pageY
+			});
+		};
+
+		var controler,
+			cloudList=new List();
+
+		$('.cloud').each(function() {
+			cloudList.addItem(new Cloud(0, $(this)));
+		});
+
+		controler = new CloudControler(cloudList);
+
+		controler.runAll(20, 0.03);
+	</script>
+</body>
+</html>

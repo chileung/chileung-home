@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="../css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../css/exp.css">
+	<script type="text/javascript" src="../js/exp.js"></script>
+</head>
+<body>
+	<div id="screens">
+		<section id="exps">
+			<div id="exps_bg"></div>
+			<div class="container">
+				<div id="left_hand" style="top:32.4%;"></div>
+				<div id="right_hand" style="top:46.3%;"></div>
+				<div class="exp_container">
+					<div id="exp_heading">
+						<div id="back_to_top">top</div>
+					</div>
+					<div class="exp">
+						<div class="heading">时间：</div>
+						<div class="duration">2013.4 - 2013.7</div>
+						<div class="heading">就职于：</div>
+						<div class="organization">
+							北京普物瑞邦网络技术有限公司
+							<br/>
+							（实习）
+						</div>
+						<div class="heading">简介：</div>
+						<div class="text_content">
+							<p>
+								作为Web前端开发工程师，到该公司实习4个月。在这期间，本人配合后台工程师，按照设计师的要求，进行前端的Web应用开发，同时对Web应用进行性能和兼容性上的优化，另外也尝试Mobile Web的开发。下附部分已上线作品：
+							</p>
+							<br/>
+							<a target="_blank" href="http://www.pluray.com">http://www.pluray.com</a>
+							<br/>
+							<a target="_blank" href="http://www.monthpal.com">http://www.monthpal.com</a>
+							<br/>
+							<a target="_blank" href="http://coesius.co">http://coesius.co</a>
+						</div>
+					</div>
+					<div class="exp">
+						<div class="heading">时间：</div>
+						<div class="duration">2012.1 - 2013.1</div>
+						<div class="heading">科研项目：</div>
+						<div class="organization">云浮市石材企业信用评级项目</div>
+						<div class="heading">简介：</div>
+						<div class="text_content">
+							<p>
+								该企业级系统基于.NET框架，使用ASP.NET及MS SQL Server。本系统是一个中小型企业信用评级平台，现已成功上线，供约3000间企业及当地政府部门使用。
+							</p>
+							<br/>
+							<p>
+								作为该项目6名核心开发人员之一，本人参与设计了整个系统的实现思路，其中本人负责编码实现权限验证模块和角色分配模块。该模块是基于httpmodule进行URL的权限验证。
+							</p>
+						</div>
+					</div>
+					<div class="exp">
+						<div class="heading">时间：</div>
+						<div class="duration">2011.6 - 2013.1</div>
+						<div class="heading">科研团队：</div>
+						<div class="organization">
+							广东工业大学 计算机学院
+							<br/>
+							智能与软件计算研究所
+						</div>
+						<div class="heading">简介：</div>
+						<div class="text_content">
+							<p>
+								该研究所为广工著名科研团队之一，又名QG工作室。本人参加该研究所的计算机网络与分布式信息系统研发团队。主要接受Web应用开发培训，并从事企业级项目的后台开发及数据库研发工作。
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<script type="text/javascript">
+		var btn=new TopBtn(document.getElementById('back_to_top'));
+		
+		var left=new Hand(document.getElementById('left_hand'),1,[32.4,65]);
+		
+		var right=new Hand(document.getElementById('right_hand'),-1,[25,46.3]);
+		
+		window.onscroll=function(){
+			var elem=document.getElementById('exp_heading');
+			
+			if(elem.getBoundingClientRect().top<=0){
+				btn.element.className='fixed';
+			}else{
+				btn.element.className='';
+			}
+
+			left.move();
+			right.move();
+		};
+	</script>
+</body>
+</html>
